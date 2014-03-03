@@ -1,0 +1,15 @@
+<div id="leftwrapper"><div id="left">
+<p><b>Name:</b> <%= @user.name %></p>
+<p><b>Email:</b> <%= @user.email %></p>
+<%= link_to 'Back', users_path %>
+</div></div>
+
+<div id="rightwrapper"><div id="right">
+  <h3>Unpaid effort of this user:</h3>
+  <table>
+    <%= 
+    #,'mark_as_paid_button' <= TODO: With decorators
+    render :partial => 'standard_table', 
+    :locals => {:list => @user.efforts.unpaid, :with => ['span','description'], :collect => 'ammount'} 
+    %>
+</div></div>

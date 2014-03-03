@@ -1,0 +1,129 @@
+html, body {
+  background-color: #4B7399;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+#wrapper {
+  width: 80%;
+  margin: 0 auto;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+#content {
+  padding: 20px 40px;
+  background-color: #FFF;
+  overflow: hidden;
+}
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin-bottom: 0;
+}
+
+form .field, form .actions {
+  margin: 12px 0;
+}
+
+.field .label { font-weight: bold; }
+
+#user_header {
+  float: right;
+  margin: 10px 0;
+}
+
+table tr { cursor: pointer; }
+
+/*table { width: 100%; }
+table tr th { text-align: left; }
+table tr td { padding: 5px; }
+table tr td.name { width: 200px;}
+table tr td.contact_person { width: 200px;}
+table tr td.phone { width: 200px;}
+table tr td.email { width: 200px;}
+table tr td.title { width: 350px;}
+table tr td.actions { text-align: center; width: 200px;}
+table tr.odd { background-color: #eee; }
+table tr.even { background-color: #ddd; }*/
+table tr td.date, table tr td.deadline { width: 75px; }
+table tr.flag-important td { background-color: #9A0004 !important; color: #FFF; }
+table tr.flag-highlight td { background-color: #FFFF88 !important; }
+table tr.flag-minor td { color: #999; padding-top:3px; padding-bottom:3px; font-size: 11px;}
+
+.inline_field { float: left; margin-right: 5px; }
+.contact_line { clear: both; margin-bottom: 5px; }
+
+#naviwrapper {
+  width: 80%;
+  margin: 0px auto;
+  border-style: solid;
+  border-color: #000;
+  border-width: 0px 1px 1px 1px;
+}
+#navi {
+  background-color: #fff;
+  padding: 20px;
+  overflow: hidden;
+}
+#navi a { margin-left: 10px; }
+#navi .app_navi { float: left; } 
+#navi .user_navi { float: right; }
+
+#leftwrapper, #rightwrapper {
+  float: left;
+  width: 50%;
+}
+
+#tasks_header { float: left; }
+#subnavi { float: right; }
+#subnavi ul { overflow: hidden; margin: 0px; }
+#subnavi ul li { list-style-type: none; float: left; margin-right: 10px; }
+#subnavi ul li a.active { text-decoration: underline; }

@@ -1,0 +1,28 @@
+<div id="leftwrapper"><div id="left">
+<p><b>Name:</b> <%= @customer.name %></p>
+<p><b>Contact person:</b> <%= @customer.contact_person %></p>
+<p><b>Phone:</b> <%= @customer.phone %></p>
+<p><b>Email:</b> <%= @customer.email %></p>
+<p><b>Website:</b> <%= @customer.website %></p>
+<p><b>Town:</b> <%= @customer.town %></p>
+<p><b>Address:</b> <%= @customer.address %></p>
+<p><b>Services:</b><br /><%= @customer.services.map{|s| s.name }.join("<br />").html_safe %></p>
+<p><b>Details:</b><br /><%= @customer.details %></p>
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
+</div></div>
+
+<div id="rightwrapper"><div id="right">
+  <h3>Tasks related to this customer:</h3>
+  <%= 
+    render :partial => 'standard_table', 
+    :locals => {:list => @customer.tasks, :with => ['title','deadline']} 
+  %>
+
+  <h3>Recent contacts with this customer:</h3>
+  <%= 
+    render :partial => 'standard_table', 
+    :locals => {:list => @customer.contacts, :with => ['details','date']} 
+  %>
+
+</div></div>

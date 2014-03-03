@@ -1,0 +1,11 @@
+<%= simple_form_for(@effort) do |f| %>
+  <%= f.input :description, as: :string, :input_html => { :class => "span4" } %>
+  <%= f.input :from do %>
+    <%= f.input_field :from, { :class => "span1" }  %>
+    <a href="javascript:void(0)" id="subtract_hour_btn">&nbsp; - 1 hour</a>
+  <% end %>
+  <%= f.input :to, :input_html => { :class => "span1" } %>
+  <%= f.button :submit %>
+  
+  <%= hidden_field_tag 'effort[task_id]', params[:task_id] %>
+<% end %>

@@ -1,0 +1,28 @@
+<div id="leftwrapper"><div id="left">
+<p><b>Title:</b> <%= @task.title %></p>
+<!--<p><b>Start:</b> <%= @task.start %></p>
+<p><b>End:</b> <%= @task.end %></p>-->
+<p><b>Deadline:</b> <%= @task.deadline %></p>
+<p><b>Customer:</b> <%= @task.customer.name if @task.customer %></p>
+<p><b>Responsibles: </b><%= @task.users.map{|u| u.name }.join(", ").html_safe %></p>
+<p><b>Details:</b> <%= simple_format @task.details %></p>
+<p><b>Flag:</b> <%= flag(@task.flag) %></p>
+<p><b>Done:</b> <%= @task.done %></p>
+<p><b>Billed:</b> <%= billed_status(@task.billed) %></p>
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %> |
+<%= link_to 'Spend effort', @spend_effort_url, :remote => true %>
+</div></div>
+
+<div id="rightwrapper"><div id="right">
+  <h3>Effort spent on this task:</h3>
+  <%= 
+    render :partial => 'standard_table', 
+    :locals => {:list => @task_efforts, :with => ['user','description','ammount'], :collect => 'ammount'} 
+  %>
+  <h3>Contacts related to this task:</h3>
+  <%= 
+    render :partial => 'standard_table', 
+    :locals => {:list => @task.contacts, :with => ['details','date']} 
+  %>
+</div></div>

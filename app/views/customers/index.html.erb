@@ -1,0 +1,10 @@
+<h1>Listing customers</h1>
+
+<%= 
+  render :partial => 'standard_table',
+  :locals => {:list => @customers, :with => ["name", "contact_person", "phone", "email"]} 
+%>
+
+<br />
+
+<%= link_to 'New Customer', new_customer_path %>

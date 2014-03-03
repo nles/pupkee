@@ -1,0 +1,33 @@
+<br />
+<%= simple_form_for(@contact) do |f| %>
+  <%= f.input :date, :input_html => { :class => "span2" } %>
+  <!-- fields for customer select -->
+  <!-- maybe someday with simple_form also... -->
+  <div class="field">
+    <span class=""><%= f.label :customer %></span>
+    <%= f.collection_select :customer_id, Customer.all, :id, :name, {:prompt => "- Select a customer -"} %>
+  </div>
+  <div class="field">
+    <span class=''><%= f.label :customer_task %></span>
+    <div id="current_tasks">
+      <% @contact.tasks.each do |t| %>
+        <div class="task_line">
+          <div><%= t.title %>, <small><a href="javascript:void(0)" class="remove_task_btn">remove</a></small></div>
+          <input type="hidden" name="contact[task_ids][]" value="<%= t.id %>" />
+        </div>
+      <% end %>
+    </div>
+    <div id="new_tasks">
+      <div class="task_line">
+        <div class="inline_field">
+          <%= select_tag "contact[task_ids][]", grouped_options_for_select(Customer.all.map {|c| [c.name, c.tasks.map {|t| [t.title, t.id] }] }), {:prompt => "- Select task -", :id => nil, :class => 'contact_task_id'} %>
+        </div>
+        <br style="clear:both" />
+      </div>
+    </div>
+    <div id="new_task"><a href="#" id="add_new_task_btn">new task</a></div>
+  </div>
+  <!-- / fields for customer select -->
+  <%= f.input :details, :input_html => { :class => "span6" } %>
+  <%= f.button :submit %>
+<% end %>

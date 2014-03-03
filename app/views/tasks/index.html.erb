@@ -1,0 +1,28 @@
+<h1 id="tasks_header">Listing tasks</h1>
+<div id="subnavi">
+  <ul>
+    <li><a href="/tasks" class="<%= 'active' if @active_subnavi == 'DEFAULT' %>">Default list</a></li>
+    <li><a href="/tasks/user" class="<%= 'active' if @active_subnavi == 'USER' %>">Own tasks</a></li>
+    <li><a href="/tasks/all" class="<%= 'active' if @active_subnavi == 'ALL' %>">All tasks</a></li>
+  </ul>
+</div>
+<br style="clear:both" />
+<% if !@main_list.empty? %>
+  <h2><%= @main_list_header %></h2>
+  <%= 
+    render :partial => 'standard_table',
+    :locals => {:list => @main_list, :with => ["title", "customer_name", "deadline"]} 
+  %>
+<% end %>
+
+<% if !@done_unbilled_tasks.empty? %>
+  <h2>Done (not billed)</h2>
+  <%= 
+    render :partial => 'standard_table',
+    :locals => {:list => @done_unbilled_tasks, :with => ["title", "customer_name", "deadline"]} 
+  %>
+<% end %>
+
+<br />
+
+<%= link_to 'New Task', new_task_path %>

@@ -1,0 +1,10 @@
+<h1>Listing documentations</h1>
+
+<%= 
+  render :partial => 'standard_table',
+  :locals => {:list => @documentations, :with => ["title", "created_at"]} 
+%>
+
+<br />
+
+<%= link_to 'New Documentation', new_documentation_path %>

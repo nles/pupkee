@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<p><b>Date:</b> <%= @contact.date %></p>
+<p><b>Customer:</b> <%= @contact.customer.name %></p>
+<p><b>Tasks:</b><br /><%= @contact.tasks.map{|t| link_to(t.title,t) }.join(", ").html_safe %></p>
+<p><b>Details:</b> <%= @contact.details %></p>
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

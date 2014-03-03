@@ -1,0 +1,26 @@
+<table class='table table-striped table-hover'>
+  <thead>
+  <tr>
+  <% with.each do |c| %>
+    <th><%= c.humanize %></th>
+  <% end %>
+  </tr>
+  </thead>
+  <tbody>
+    <% collect_sum = 0 if defined? collect %>
+    <% list.each do |list_item| %>
+      <% collect_sum += list_item.send(collect) if defined? collect %>
+      <tr onclick="goto('<%= url_for list_item %>')" class='<%= 'flag-'+flag(list_item.flag) if defined? list_item.flag and list_item.flag > 0 %>'>
+        <% with.each do |c| %>
+          <td class="<%= c %>"><%= list_item.send(c) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    <tr>
+    <% if collect_sum %>
+      <td colspan="<%= with.count - 1 %>" style='text-align:right;'><b>Total:</b></td>
+      <td><%= collect_sum %></td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>

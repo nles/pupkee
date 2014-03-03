@@ -1,0 +1,10 @@
+<h1>Listing services</h1>
+
+<%= 
+  render :partial => 'standard_table',
+  :locals => {:list => @services, :with => ["name", "details"]} 
+%>
+
+<br />
+
+<%= link_to 'New Service', new_service_path %>
