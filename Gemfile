@@ -38,6 +38,8 @@ end
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano-puma', require: false
 end
 
 group :production do
